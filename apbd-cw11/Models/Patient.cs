@@ -5,6 +5,6 @@ public class Patient
     public int IdPatient { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    public DateOnly Birthday { get; set; }
+    public DateTime Birthday { get; set; }
     public ICollection<Prescription> Prescriptions { get; set; }
 }

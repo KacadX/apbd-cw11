@@ -21,23 +21,11 @@ public class DatabaseContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Patient>()
-            .Property(p => p.Birthday)
-            .HasConversion(
-                v => v.ToDateTime(TimeOnly.MinValue),
-                v => DateOnly.FromDateTime(v));
+        modelBuilder.Entity<Patient>();
 
-        modelBuilder.Entity<Prescription>()
-            .Property(p => p.Date)
-            .HasConversion(
-                v => v.ToDateTime(TimeOnly.MinValue),
-                v => DateOnly.FromDateTime(v));
+        modelBuilder.Entity<Prescription>();
 
-        modelBuilder.Entity<Prescription>()
-            .Property(p => p.DueDate)
-            .HasConversion(
-                v => v.ToDateTime(TimeOnly.MinValue),
-                v => DateOnly.FromDateTime(v));
+        modelBuilder.Entity<Prescription>();
 
         modelBuilder.Entity<PrescriptionMedicament>()
             .HasKey(pm => new { pm.IdMedicament, pm.IdPrescription });
